@@ -50,6 +50,20 @@ CallManager::Application.routes.draw do
   # just remember to delete public/index.html.
   # root :to => 'welcome#index'
   
+  scope 'api' do
+    resources :statuses
+    
+    scope 'voice' do
+      resources :voice_callers, path: 'callers'
+      resources :voice_receivers, path: 'receivers'
+    end
+    
+    scope 'sms' do
+      resources :text_senders, path: 'callers'
+      resources :text_receivers, path: 'receivers'
+    end
+  end
+  
   root :to => 'application#start'
 
   # See how all your routes lay out with "rake routes"

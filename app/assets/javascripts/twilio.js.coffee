@@ -1,0 +1,3 @@
+jQuery ->
+  Twilio.Device.setup("")
+  
