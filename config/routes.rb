@@ -51,8 +51,7 @@ CallManager::Application.routes.draw do
   # root :to => 'welcome#index'
   
   scope 'api' do
-    resources :tokens
-    
+    post 'tokens' => 'tokens#create'
     
     resources :statuses
     
