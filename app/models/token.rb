@@ -1,11 +1,12 @@
 class Token
-    
+      
   include ActiveAttr::Model
   
   attribute :outgoing, default: false
   attribute :incoming, default: false
   attribute :incoming_name
   attribute :expiration, default: 120
+  attribute :value
   
   attr_accessible :outgoing, :incoming, :incoming_name, :expiration
   
@@ -17,7 +18,7 @@ class Token
       setup_capability
       set_outgoing if outgoing
       set_incoming(incoming_name) if incoming
-      generate_token
+      generate_token ? true : false
     else
       false
     end
@@ -30,8 +31,8 @@ class Token
   end
   
   def generate_token
-    @token = @capability.generate(expiration)
-    @token
+    self.value = @capability.generate(expiration)
+    value
   end
   
   def set_outgoing
