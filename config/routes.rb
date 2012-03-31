@@ -51,6 +51,9 @@ CallManager::Application.routes.draw do
   # root :to => 'welcome#index'
   
   scope 'api' do
+    resources :tokens
+    
+    
     resources :statuses
     
     scope 'voice' do
