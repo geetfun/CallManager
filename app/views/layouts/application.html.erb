@@ -47,22 +47,68 @@
     <div class="container">
       <div class="content">
         <div class="row">
-           <div class="span9">
-              <%= yield %>
+          <div class="span2">
+            <div class="well">
+              <table class="dialpad">
+                <tr>
+                  <td><%= button_tag "1", :class => "btn btn-large" %></td>
+                  <td><%= button_tag "2", :class => "btn btn-large" %></td>
+                  <td><%= button_tag "3", :class => "btn btn-large" %></td>
+                </tr>
+                <tr>
+                  <td><%= button_tag "4", :class => "btn btn-large" %></td>
+                  <td><%= button_tag "5", :class => "btn btn-large" %></td>
+                  <td><%= button_tag "6", :class => "btn btn-large" %></td>
+                </tr>
+                <tr>
+                  <td><%= button_tag "7", :class => "btn btn-large" %></td>
+                  <td><%= button_tag "8", :class => "btn btn-large" %></td>
+                  <td><%= button_tag "9", :class => "btn btn-large" %></td>
+                </tr>
+                <tr>
+                  <td><%= button_tag "*", :class => "btn btn-large" %></td>
+                  <td><%= button_tag "0", :class => "btn btn-large" %></td>
+                  <td><%= button_tag "#", :class => "btn btn-large" %></td>
+                </tr>
+              </table>
             </div>
-            <div class="span3">
-              <div class="well sidebar-nav">
-                <h3>Hello World</h3>
-                <ul class="nav nav-list">
-                  <li class="nav-header">Outgoing</li>
-                    <li><%= link_to "Call", "/path1"  %></li>
-                    <li><%= link_to "Outgoing Logs", "/path2"  %></li>
-                  <li class="nav-header">Incoming</li>
-                    <li><%= link_to "Voice Messages", "/path1"  %></li>
-                    <li><%= link_to "Incoming Logs", "/path2"  %></li>
-                </ul>
-              </div><!--/.well -->
-            </div><!--/span-->
+          </div>
+          
+          <div class="span2">
+            <%= form_tag "/", :class => "well" do %>
+              <%= field_set_tag do %>                
+                <%= button_tag "Call", :class => "btn btn-primary" %>
+                <%= button_tag "Hangup", :class => "btn" %>
+              <% end %>
+            <% end %>
+          </div>
+
+          <div class="span4">
+            <div class="well">
+            </div>
+          </div>
+          <div class="span4">
+            <div class="well">
+            </div>
+          </div>
+          
+
+          <div class="span9">
+            <%= yield %>
+          </div>
+          <div class="span3">
+            <div class="well sidebar-nav">
+              <h3>Hello World</h3>
+              <ul class="nav nav-list">
+                <li class="nav-header">Outgoing</li>
+                  <li><%= link_to "Call", "/path1"  %></li>
+                  <li><%= link_to "Outgoing Logs", "/path2"  %></li>
+                <li class="nav-header">Incoming</li>
+                  <li><%= link_to "Voice Messages", "/path1"  %></li>
+                  <li><%= link_to "Incoming Logs", "/path2"  %></li>
+              </ul>
+            </div><!--/.well -->
+          </div><!--/span-->
         </div><!--/row-->
       </div><!--/content-->
 
