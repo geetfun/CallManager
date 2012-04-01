@@ -1,13 +1,2 @@
-<%= form_tag '/', :class => "form-horizontal"  do %>
-  <%= field_set_tag do %>
-    <%= content_tag :div, :class => "control-group" do %>
-      <%= label_tag "number", "Call this number", :class => "control-label" %>
-      <%= content_tag :div, :class => "controls" do %>
-        <%= content_tag :div, :class => "input-append" do %>
-          <%= text_field_tag "number", nil, :class => "span2" %>
-          <%= button_tag "Dial", :class => "btn" %>
-        <% end %>
-      <% end %>
-    <% end %>    
-  <% end %>
-<% end %>
+<%= button_tag "Call", :id => "call", :class => "btn" %>
+<%= button_tag "Hangup", :id => "hangup", :class => "btn" %>

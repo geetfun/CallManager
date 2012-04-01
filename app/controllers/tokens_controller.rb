@@ -4,10 +4,11 @@ class TokensController < ApplicationController
   
   def create
     @token = Token.new(params[:token])
-    if @tocken.save
+    @token.outgoing = true
+    if @token.save
       flash[:notice] = "Token generated"
     end
-    respond_with(@token)
+    respond_with(@token, only: [:value, :expiration, :incoming, :incoming_name, :outgoing])
   end
   
 end
