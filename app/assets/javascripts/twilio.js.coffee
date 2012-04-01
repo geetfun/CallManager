@@ -1,22 +1,21 @@
 jQuery ->
-  
-  
-  
-  # Twilio.Device.setup("")
-  
+    
   Twilio.Device.ready (device) ->
-    console.log "Twilio is ready"
+    console.log "Twilio: Ready"
   
   Twilio.Device.error (error) ->
     console.log "Error: #{error}"
     
   Twilio.Device.connect (connection) ->
-    console.log "Twilio successfully established call"
+    console.log "Twilio: Connection established"
+  
+  $.ajax({
+    type: 'POST',
+    url: '/api/tokens',
+    success: (data, textStatus, jqXHR) =>
+      Twilio.Device.setup(data.token.value)
+  })
     
   $("#call").click (e) ->
     e.preventDefault()
-    console.log "Clicked!"
-    token_results = jQuery.post('/api/tokens')
-    token_object = JSON.parse(token_results.responseText).token
-    Twilio.Device.setup("#{token_object.value}")
     Twilio.Device.connect()
